@@ -1,3 +1,12 @@
+#!/bin/bash
+
+# Checks of root or not
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root."
+    exit
+fi
+
+# Main Script starts
 mkdir ~/pt
 cd /etc/systemd/system
 cat > pt.service <<EOL
